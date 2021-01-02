@@ -1,5 +1,5 @@
 # Easy linux configurations file store
-  My linux, i3, polybar, vim config
+  My linux configuration files
 ## Fast setup
 1. Clone repo to home directory<br>
     <code>cd ~ && git clone https://github.com/Sheeshlop/config.git</code>
