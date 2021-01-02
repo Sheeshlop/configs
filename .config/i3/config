@@ -1,11 +1,12 @@
   set $mod Mod4
+
   font pango:monospace 9 
-  bindsym $mod+p exec dmenu_run
-  set $refresh_i3status killall -SIGUSR1 i3status
+
   bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
   bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
   bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
   bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
   floating_modifier $mod
   bindsym $mod+Return exec alacritty 
   bindsym $mod+Shift+o kill
@@ -80,5 +81,19 @@
 
   bindsym $mod+r mode "resize"
 
-  default_border pixel 1
+  default_border pixel 1 
   hide_edge_borders both
+
+  exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+  exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/1.jpg
+
+  client.focused          #54478C #54478C #FFFFFF #2C699A   #54478C
+  client.focused_inactive #38315B #4A3F77 #C9C9C9 #6859A8   #6859A8
+  client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+  client.urgent           #8C3131 #C94747 #FFFFFF #822E2E   #842222
+  client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+  client.background       #3F79A5
+
+  bindsym $mod+p exec "dmenu_run -nf '#E6E7E4' -nb '#333336' -sb '#295D85' -sf '#FCAAFF' -fn 'monospace-10' -p '>'"
+

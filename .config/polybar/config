@@ -1,15 +1,15 @@
 
 [bar/mybar]
   modules-left = i3
-  modules-right = spotify date temperature 
+  modules-right = date 
   bottom = true
 
   ;font-0 = NotoSans-Regular:size=9;2
-  font-0 = Material\ Icons:size=8;2
-  font-2 = xos4\ Terminus:size=14;0
-  font-3 = Siji:pixelsize=11;1
-  font-4 = FontAwesome:size=11;0
-  font-5 = monospace:size=9:antialias=true;2
+  ;font-0 = Material\ Icons:size=8;2
+  ;font-0 = xos4\ Terminus:size=8;2
+  ;font-3 = Siji:pixelsize=11;1
+  ;font-4 = FontAwesome:size=11;0
+  font-0 = monospace:size=9:antialias=true;2
 
   separator = |
   width = 100% 
@@ -67,13 +67,6 @@
   label-separator-pading = 2
   label-separator-foreground = #ffb52a
   label-dimmed-underline = #FFF 
-
-[module/temperature]
-  type = internal/temperature
-  hwmon-path = /sys/devices/virtual/thermal/thermal_zone0/hwmon1/temp1_input
-  base-temperature = 20
-  warn-temperature = 60
-  label = TEMP %temperature-c%
 
 [module/spotify]
   type = custom/script
