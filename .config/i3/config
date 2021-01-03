@@ -8,25 +8,32 @@
   bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
   floating_modifier $mod
-  bindsym $mod+Return exec alacritty 
+
+
   bindsym $mod+Shift+o kill
+
   bindsym $mod+h focus left
   bindsym $mod+j focus down
   bindsym $mod+k focus up
   bindsym $mod+l focus right
+
   bindsym $mod+Shift+h move left
   bindsym $mod+Shift+j move down
   bindsym $mod+Shift+k move up
   bindsym $mod+Shift+l move right
+
   bindsym $mod+Shift+s split h
   bindsym $mod+Shift+v split v
+
   bindsym $mod+f fullscreen toggle
   bindsym $mod+s layout stacking
   bindsym $mod+w layout tabbed
   bindsym $mod+e layout toggle split
+
   bindsym $mod+Shift+space floating toggle
   bindsym $mod+space focus mode_toggle
   bindsym $mod+a focus parent
+
   set $ws1 "1"
   set $ws2 "2"
   set $ws3 "3"
@@ -84,16 +91,33 @@
   default_border pixel 1 
   hide_edge_borders both
 
+# Run polybar and set up background on startup
   exec_always --no-startup-id $HOME/.config/polybar/launch.sh
   exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/1.jpg
 
+# Run some apps on startup
+  # exec_always --no-startup-id i3-msg 'workspace 2; exec alacritty'
+  # exec_always --no-startup-id i3-msg 'workspace 2; exec code'
+  # exec_always --no-startup-id i3-msg 'workspace 2; exec chromium'
+
+# Run terminal
+  bindsym $mod+Return exec --no-startup-id alacritty 
+
+# Open terminal with script, very useful if you need to do a lot of similar commands during your workflow 
+  bindsym $mod+u exec --no-startup-id alacritty --hold -e bash -c '. /home/shishlop/.config/i3/angular_serve.sh'
+
+# Open application runner(dmenu_run)
+  bindsym $mod+p exec --no-startup-id "dmenu_run -nf '#E6E7E4' -nb '#333336' -sb '#295D85' -sf '#FCAAFF' -fn 'monospace-10' -p '>'"
+
+# Colors
+  # class                 border  bground text    indicator child_border
   client.focused          #54478C #54478C #FFFFFF #2C699A   #54478C
   client.focused_inactive #38315B #4A3F77 #C9C9C9 #6859A8   #6859A8
   client.unfocused        #333333 #222222 #888888 #292D2E   #222222
   client.urgent           #8C3131 #C94747 #FFFFFF #822E2E   #842222
   client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
-
   client.background       #3F79A5
 
-  bindsym $mod+p exec "dmenu_run -nf '#E6E7E4' -nb '#333336' -sb '#295D85' -sf '#FCAAFF' -fn 'monospace-10' -p '>'"
+# If you want to stylize colors by yourself, here is good application
+# https://thomashunter.name/i3-configurator/
 
