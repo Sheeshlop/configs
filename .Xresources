@@ -1,6 +1,7 @@
 !! color generator
 !! https://terminal.sexy/ 
 !! check if font exists: fc-list | grep "your font"
+!! for Fira Code Retina font need to install ttf-fira-code
 
 ! special
 *.foreground:   #c5c8c6
@@ -42,7 +43,7 @@
 URxvt.transparent: true
 URxvt.shading:       10 
 urxvt*font: xft:Fira Code Retina:size=9
-URxvt.letterSpace: -1 
+URxvt.letterSpace: -2
 URxvt.lineSpace: 0
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
