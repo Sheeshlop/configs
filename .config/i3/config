@@ -104,7 +104,7 @@
   bindsym $mod+Return exec --no-startup-id alacritty 
 
 # Open terminal with script, very useful if you need to do a lot of similar commands during your workflow 
-  bindsym $mod+u exec --no-startup-id alacritty --hold -e bash -c '. /home/shishlop/.config/i3/angular_serve.sh'
+  bindsym $mod+u exec --no-startup-id  alacritty --hold -e bash -c '. /home/shishlop/.config/i3/angular_serve.sh'
 
 # Open application runner(dmenu_run)
   bindsym $mod+p exec --no-startup-id "dmenu_run -nf '#E6E7E4' -nb '#333336' -sb '#295D85' -sf '#FCAAFF' -fn 'monospace-10' -p '>'"

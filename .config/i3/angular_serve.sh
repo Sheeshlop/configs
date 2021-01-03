@@ -39,7 +39,7 @@ openEditor() {
 }
 
 PS3='Which project you want to start? '
-select PROJerve -oCT in $PROJECTS
+select PROJECT in $PROJECTS
 do
   read -p "Open $project in vscode? (Y/n) " -n 1 -r
   echo
