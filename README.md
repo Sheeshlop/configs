@@ -1,8 +1,8 @@
 # Easy linux configurations file store
   My linux configuration files
 ## Dependencies
-  i3 (window manager), feh (set background), polybar (custom bar), alacritty (terminal emulator)<br>
-  If you want to use different terminal emulator, update .config/i3/config - change every 'alacritty' to your terminal
+  i3 (window manager), feh (set background), polybar (custom bar), urxvt (terminal-emulator)<br>
+  If you want to use different terminal emulator, update .config/i3/config - change every 'urxvt' to your terminal
 ## Fast setup
 1. Clone repo to home directory<br>
     <code>cd ~ && git clone https://github.com/Sheeshlop/config.git</code>
