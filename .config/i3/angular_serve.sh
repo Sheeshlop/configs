@@ -35,7 +35,7 @@ selectProject() {
 
 openEditor() {
   echo -e "${COL_GREEN} Opening \e[1m$1\e[0m ${COL_GREEN}in vscode editor ...${COL_NC}"
-  code -a -n $PROJECTS_DIR/$1
+  code -n "$PROJECTS_DIR/$1"
 }
 
 PS3='Which project you want to start? '
