@@ -19,16 +19,16 @@ selectProject() {
 # or anything you like to do when in terminal with your opened project
 
 # I run condition
-  read -p "Is it ionic project (Y/n) " -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    echo -e "-- Performing 'ionic cap run android -l --external --prod'"
-    ionic cap run android -l --external --prod
-  fi
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
-    echo -e "-- Performing 'ng serve'"
+  if test -f "$PROJECTS_DIR/$1/capacitor.config.json"; then
+    echo -e "${COL_GREEN}Found capacitor config${COL_NC}"
+    ANDROID_STUDIO_PATH=whereis android-studio
+    echo $ANDROID_STUDIO_PATH
+    echo -e "Checking for \"linuxAndroidStudioPath\" in capacitor.config.json..."
+    echo -e "- Performing ionic ${COL_GREEN}capacitor run android -l --prod --external${COL_NC}"
+    ionic capacitor run android -l --prod --external
+  else
+    echo -e "${COL_CYAN}Capacitor config not found${COL_NC}"
+    echo -e "- Performing ${COL_GREEN}ng serve${COL_NC}"
     ng serve
   fi
 }
