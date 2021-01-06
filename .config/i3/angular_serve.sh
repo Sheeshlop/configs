@@ -13,38 +13,36 @@ PROJECTS=`ls $PROJECTS_DIR`
 
 selectProject() {
   cd $PROJECTS_DIR/$1
-# here you can do something with your project, for example: 
-# node index.js
-# npm run start
-# or anything you like to do when in terminal with your opened project
-
-# I run condition
   if test -f "$PROJECTS_DIR/$1/capacitor.config.json"; then
     echo -e "${COL_GREEN}Found capacitor config${COL_NC}"
     echo -e "- Performing ionic ${COL_GREEN}capacitor run android -l --prod --external${COL_NC}"
     ionic capacitor run android -l --prod --external
   else
-    echo -e "${COL_CYAN}Capacitor config not found${COL_NC}"
     echo -e "- Performing ${COL_GREEN}ng serve${COL_NC}"
     ng serve
   fi
 }
 
 openEditor() {
-  echo -e "${COL_GREEN} Opening \e[1m$1\e[0m ${COL_GREEN}in vscode editor ...${COL_NC}"
-  code -n "$PROJECTS_DIR/$1"
+# check for opened project in vscode
+  EDITOR_OPENED_PROJECTS="$(code -s | grep "Folder")"
+  if [[ $EDITOR_OPENED_PROJECTS == *"$1"* ]]; then
+    echo -e "${COL_CYAN}-- project '$1' is currently opened in vscode, editor will not be opened${COL_NC}"
+  else
+    echo "$1 is not opened in VScode, opening project..."
+    code -n "$PROJECTS_DIR/$1"
+  fi
 }
 
 PS3='Which project you want to start? '
 select PROJECT in $PROJECTS
 do
-  read -p "Open $project in vscode? (Y/n) " -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    openEditor $PROJECT
-  fi
-  selectProject $PROJECT
+  selected=${REPLY:0:1}
+  echo ${REPLY:0:1} 
+  project=${PROJECTS[2]}
+  echo $project
+  #openEditor $PROJECT
+  #selectProject $PROJECT
   break
 done
 
@@ -55,4 +53,5 @@ done
 # https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
 # text format
 # https://askubuntu.com/questions/528928/how-to-do-underline-bold-italic-strikethrough-color-background-and-size-i
-
+# check if string has a substring (check for project opened in vscode)
+# https://stackoverflow.com/questions/229551/how-to-check-if-a-string-contains-a-substring-in-bash
