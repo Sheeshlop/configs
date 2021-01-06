@@ -15,11 +15,22 @@ selectProject() {
   cd $PROJECTS_DIR/$1
   if test -f "$PROJECTS_DIR/$1/capacitor.config.json"; then
     echo -e "${COL_GREEN}Found capacitor config${COL_NC}"
-    echo -e "- Performing ionic ${COL_GREEN}capacitor run android -l --prod --external${COL_NC}"
-    ionic capacitor run android -l --prod --external
+    echo -e "- Performing ionic ${COL_GREEN}capacitor run android${COL_NC}"
+    if [[ $2 ]]; then
+      echo -e "${COL_PURPLE}You selected --prod(!) option, running in production...${COL_NC}"
+      ionic capacitor run android -l --prod --external
+    else
+      echo -e "${COL_CYAN}--prod flag not specified, if you want to run your application in production, specify prod flag \"!\"${COL_NC}"
+      ionic capacitor run android -l --external
+    fi
   else
-    echo -e "- Performing ${COL_GREEN}ng serve${COL_NC}"
-    ng serve
+    if [[ $2 ]]; then
+      echo -e "${COL_PURPLE}You selected --prod(!) option, running in production...${COL_NC}"
+      ng serve --prod
+    else
+      echo -e "${COL_CYAN}--prod flag not specified, if you want to run your application in production, specify prod flag \"!\"${COL_NC}"
+      ng serve
+    fi
   fi
 }
 
@@ -37,12 +48,11 @@ openEditor() {
 PS3='Which project you want to start? '
 select PROJECT in $PROJECTS
 do
-  selected=${REPLY:0:1}
-  echo ${REPLY:0:1} 
-  project=${PROJECTS[2]}
-  echo $project
-  #openEditor $PROJECT
-  #selectProject $PROJECT
+  PROJECTS_ARRAY=($PROJECTS)
+  SELECTED_PROJECT=${PROJECTS_ARRAY[${REPLY:0:1}-1]} 
+  openEditor $SELECTED_PROJECT
+# second argument stands for flag, i'll stick with "!", that means --prod flag (example, in prompt 1! or 2! or just 1)
+  selectProject $SELECTED_PROJECT ${REPLY:1:1}
   break
 done
 
