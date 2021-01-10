@@ -26,9 +26,11 @@ selectProject() {
   else
     if [[ $2 ]]; then
       echo -e "${COL_PURPLE}You selected --prod(!) option, running in production...${COL_NC}"
+      chromium --new-window  'localhost:4200';
       ng serve --prod
     else
       echo -e "${COL_CYAN}--prod flag not specified, if you want to run your application in production, specify prod flag \"!\"${COL_NC}"
+      chromium --new-window  'localhost:4200';
       ng serve
     fi
   fi
