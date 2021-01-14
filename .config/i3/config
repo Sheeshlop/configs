@@ -9,7 +9,6 @@
 
   floating_modifier $mod
 
-
   bindsym $mod+Shift+o kill
 
   bindsym $mod+h focus left
@@ -100,12 +99,12 @@
   # exec_always --no-startup-id i3-msg 'workspace 2; exec code'
   # exec_always --no-startup-id i3-msg 'workspace 2; exec chromium'
 
-# Run terminal
-  bindsym $mod+Return exec --no-startup-id urxvt 
-
 # Open terminal with script, very useful if you need to do a lot of similar commands during your workflow 
-# bindsym $mod+u exec --no-startup-id  alacritty --hold -e bash -c '. ~/.config/i3/angular_serve.sh'
   bindsym $mod+u exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/angular_serve.sh
+
+  bindsym $mod+Return exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/open_project.sh
+  bindsym $mod+Shift+Return exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/node_start.sh
+
 
 # Open application runner(dmenu_run)
   bindsym $mod+p exec --no-startup-id "dmenu_run -nf '#E6E7E4' -nb '#333336' -sb '#295D85' -sf '#FCAAFF' -fn 'monospace-10' -p '>'"
