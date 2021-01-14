@@ -101,7 +101,7 @@
 
 # Open terminal with script, very useful if you need to do a lot of similar commands during your workflow 
   bindsym $mod+u exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/angular_serve.sh
-
+  bindsym $mod+q exec --no-startup-id chromium 
   bindsym $mod+Return exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/open_project.sh
   bindsym $mod+Shift+Return exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/node_start.sh
 
