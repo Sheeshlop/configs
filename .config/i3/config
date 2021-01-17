@@ -104,9 +104,8 @@
 
   bindsym $mod+q exec --no-startup-id chromium 
   bindsym $mod+Shift+q exec --no-startup-id chromium --new-window 192.168.1.115:8100
-  bindsym $mod+Return exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/open_project.sh
-  bindsym $mod+Shift+Return exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/node_start.sh
-
+  bindsym $mod+Shift+Return exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/open_project.sh
+  bindsym $mod+Return exec --no-startup-id urxvt
 
 # Open application runner(dmenu_run)
   bindsym $mod+p exec --no-startup-id "dmenu_run -nf '#E6E7E4' -nb '#333336' -sb '#295D85' -sf '#FCAAFF' -fn 'monospace-10' -p '>'"
