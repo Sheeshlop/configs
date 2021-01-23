@@ -41,7 +41,7 @@
 *.color15:      #c5c8c6
 
 URxvt.transparent: true
-URxvt.shading:       50 
+URxvt.shading:       30 
 urxvt*font: xft:Fira Code Retina:size=9
 URxvt.letterSpace: -1
 URxvt.lineSpace: 0
