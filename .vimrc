@@ -37,3 +37,5 @@ call plug#end()
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 map <Leader> <Plug>(easymotion-prefix)
+
+let g:ctrlp_custom_ignore = 'node_modules\|android\|www\|git'
