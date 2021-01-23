@@ -23,3 +23,16 @@ set pastetoggle=<F11>
 
 colorscheme delek
 syntax on
+
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
+call plug#end()
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+map <Leader> <Plug>(easymotion-prefix)
