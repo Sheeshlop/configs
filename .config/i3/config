@@ -98,7 +98,7 @@
 
 # Run polybar and set up background on startup
   exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-  exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/1.jpg
+  exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/1.jpeg
 
 # Run some apps on startup
   # exec_always --no-startup-id i3-msg 'workspace 2; exec alacritty'
