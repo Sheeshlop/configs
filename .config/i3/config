@@ -116,6 +116,8 @@
 # Open application runner(dmenu_run)
   bindsym $mod+p exec --no-startup-id "dmenu_run -nf '#E6E7E4' -nb '#333336' -sb '#295D85' -sf '#FCAAFF' -fn 'monospace-10' -p '>'"
 
+  bindsym $mod+y exec --no-startup-id "flameshot gui"
+
 # Colors
   # class                 border  bground text    indicator child_border
   client.focused          #54478C #54478C #FFFFFF #2C699A   #54478C
