@@ -100,6 +100,12 @@
   exec_always --no-startup-id $HOME/.config/polybar/launch.sh
   exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/1.jpeg
 
+  exec --no-startup-id i3-msg 'exec telegram-desktop'
+  assign [class="TelegramDesktop"] 10
+
+  exec --no-startup-id i3-msg 'exec chromium'
+  assign [class="Chromium"] 2
+
 # Run some apps on startup
   # exec_always --no-startup-id i3-msg 'workspace 2; exec alacritty'
   # exec_always --no-startup-id i3-msg 'workspace 2; exec code'
