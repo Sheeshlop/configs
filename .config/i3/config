@@ -103,8 +103,7 @@
   exec --no-startup-id i3-msg 'exec telegram-desktop'
   assign [class="TelegramDesktop"] 10
 
-  exec --no-startup-id i3-msg 'exec chromium'
-  assign [class="Chromium"] 2
+  exec --no-startup-id i3-msg 'workspace 2; exec chromium'
 
 # Run some apps on startup
   # exec_always --no-startup-id i3-msg 'workspace 2; exec alacritty'
