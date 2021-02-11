@@ -14,9 +14,13 @@ set smarttab
 set softtabstop=2 
 set tabstop=8
 set expandtab
-set ruler
 set showtabline=1
 set undolevels=1000
+
+set wildmenu
+
+runtime macros/matchit.vim
+
 
 set backspace=indent,eol,start
 set pastetoggle=<F11>
