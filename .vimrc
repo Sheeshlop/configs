@@ -17,7 +17,16 @@ set expandtab
 set showtabline=1
 set undolevels=1000
 
+set path+=**
 set wildmenu
+set wildignore+=**/node_modules/**
+
+"command! MakeTags !ctags -R -f ./.git/tags --exclude=node_modules .
+command! MakeTags !ctags -R --exclude=node_modules .
+" set tags+=.git/tags
+" ^] g^] ^t
+"
+" ^n autocomplete, ^x^f for file paths, ^x^] for tags
 
 runtime macros/matchit.vim
 
