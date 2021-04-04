@@ -60,6 +60,13 @@
   bindsym $mod+8 workspace number $ws8
   bindsym $mod+9 workspace number $ws9
   bindsym $mod+0 workspace number $ws10
+  bindsym $mod+F1 workspace number $ws10
+  bindsym $mod+F2 workspace number $ws9
+  bindsym $mod+F3 workspace number $ws8
+  bindsym $mod+F4 workspace number $ws7
+  bindsym --whole-window $mod+button9 workspace previous  
+  bindsym --whole-window $mod+button8 workspace next  
+
 
   bindsym $mod+Shift+1 move container to workspace number $ws1
   bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -93,24 +100,16 @@
 
   bindsym $mod+r mode "resize"
 
-  default_border pixel 1 
-  hide_edge_borders both
-
 # Run polybar and set up background on startup
-  exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-  exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/1.jpeg
+  exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/1.jpg
+  exec --no-startup-id redshift -l 53:27
 
   exec --no-startup-id flameshot
   exec --no-startup-id i3-msg 'exec telegram-desktop'
   assign [class="TelegramDesktop"] 10
   exec --no-startup-id i3-msg 'workspace 2; exec chromium'
 
-# Open terminal with script, very useful if you need to do a lot of similar commands during your workflow 
-  bindsym $mod+u exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/angular_serve.sh
-
   bindsym $mod+q exec --no-startup-id chromium 
-  bindsym $mod+Shift+q exec --no-startup-id chromium --new-window 192.168.1.115:8100
-  bindsym $mod+Shift+Return exec --no-startup-id urxvt -e bash -rcfile ~/.config/i3/open_project.sh
   bindsym $mod+Return exec --no-startup-id urxvt
 
 # Open application runner(dmenu_run)
@@ -130,3 +129,5 @@
 # If you want to stylize colors by yourself, here is good application
 # https://thomashunter.name/i3-configurator/
 
+for_window [class=".*"] border pixel 0
+gaps inner 20

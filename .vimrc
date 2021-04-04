@@ -62,3 +62,4 @@ xmap F <Plug>(easymotion-F)
 let g:ctrlp_custom_ignore = 'node_modules\|android\|www\|git'
 
 filetype indent on
+map <F6> :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR>
